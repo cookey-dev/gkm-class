@@ -1,9 +1,10 @@
 # GKM
 An event based, Global Keyboard and Mouse listener.
 
-Tested on Windows 7, but should work on Linux and Mac OS X as well (untested).
 
-[![NPM](https://nodei.co/npm-dl/gkm.png)](https://nodei.co/npm/gkm/)
+Tested on Windows 7 (and Linux), but should work on Mac OS X as well (untested).
+
+[![NPM](https://nodei.co/npm-dl/gkm-class.png)](https://nodei.co/npm/gkm-class/)
 
 ## Why?
 Node didn't have any global keyboard and mouse listener available at the time.
@@ -17,12 +18,16 @@ You will also find `JNativeHook.jar`, which source you can find at https://githu
 ## Getting started
 Install gkm via node.js package manager:
 
-    npm install gkm --save
+    npm i gkm-class
 
-Then require the package in your code:
+Then require the package in your code.
+
+## **ALWAYS** remember to run `gkm.quit()` when you are done with GKM, otherwise java will continue running.
 
 ```javascript
-var gkm = require('gkm');
+import GKM from 'gkm-class';
+
+const gkm = new GKM();
 
 // Listen to all key events (pressed, released, typed)
 gkm.events.on('key.*', function(data) {
@@ -33,6 +38,11 @@ gkm.events.on('key.*', function(data) {
 gkm.events.on('mouse.*', function(data) {
 	console.log(this.event + ' ' + data);
 });
+
+// Close gkm in 10 seconds
+setTimeout(() => {
+    gkm.quit(); // Close java and remove listeners
+}, 10000);
 ```
 
 ## License
