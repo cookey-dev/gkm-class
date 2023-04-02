@@ -1,11 +1,14 @@
 {
   "name": "gkm-class",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Global Keyboard and Mouse listener",
   "keywords": [
     "global",
     "keyboard",
-    "mouse"
+    "mouse",
+    "hotkey",
+    "keybind",
+    "keypress"
   ],
   "main": "GKM.mjs",
   "author": "Tom Rochette <roctom@gmail.com>",
